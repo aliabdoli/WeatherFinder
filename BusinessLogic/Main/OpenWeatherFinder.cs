@@ -20,7 +20,9 @@ namespace BusinessLogic.Main
         }
         public override Weather GetWeather(string cityCode, string countryCode)
         {
-            var response = _openClient.GetWeather(cityCode);
+            var response = _openClient.GetWeather(cityCode.Denormalise());
+            if (response.Cod == "404")
+                return null;
             return ConverToWeather(response);
         }
 

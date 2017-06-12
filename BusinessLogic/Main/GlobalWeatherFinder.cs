@@ -41,7 +41,7 @@ namespace BusinessLogic.Main
 
         public virtual Weather GetWeather(string cityCode, string countryCode)
         {
-            var result = _client.GetWeather(cityCode, countryCode);
+            var result = _client.GetWeather(cityCode.Denormalise(), countryCode);
             if (result == null || result.Trim() == NotFoundContent)
                 return null;
             return ConvertToWeather(result);
@@ -83,7 +83,7 @@ namespace BusinessLogic.Main
                 CityGlobalServiceResponse globalWeather = serializer.Deserialize(reader) as CityGlobalServiceResponse;
                 var cities = globalWeather.Table.Select(t => new City()
                 {
-                    Code = t.CityName,
+                    Code = t.CityName.Normalise(),
                     Name = t.CityName,
                     Country = new Country()
                     {

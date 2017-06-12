@@ -1,4 +1,4 @@
-﻿var weatherSearchDirective = function (service) {
+﻿var weatherSearchDirective = function (service, errorService) {
     return {
         restrict: 'E',
         scope: {
@@ -22,6 +22,10 @@
             scope.getWeather = function (city) {
                 service.getWeather(city, scope.model.country).then(function (data) {
                     scope.model.weather = data;
+                    if(!data || !_.has(data, "Code")) {
+                        errorService.noData();
+                        scope.model.weather = null;
+                    }
                 })
             }
         }
@@ -42,5 +46,5 @@ var weatherResultDirective = function () {
 }
 
 angular.module("mainApp.weather")
-    .directive('weatherSearch', ['weatherService', weatherSearchDirective])
+    .directive('weatherSearch', ['weatherService', 'ErrorHandlingService', weatherSearchDirective])
     .directive('weatherResult', weatherResultDirective);

@@ -44,9 +44,9 @@ var formMessageDirective = function($http) {
             //error
             severity: 3,
             format: {
-                mainDivClass: "messageError",
+                mainDivClass: "alert alert-danger",
                 source: "img/iconError.png",
-                fieldValidationClass: "field-validation-error"
+                fieldValidationClass: "alert alert-danger"
             }
         }
     ];
@@ -59,7 +59,7 @@ var formMessageDirective = function($http) {
         },
         //TODO: why replace true!!!! does it merge scopes!!!!
         replace: true,
-        templateUrl: 'js/angular/common/form-message.html',
+        templateUrl: 'js/angular/common/form-message.html?8',
         link: function(scope, elem, attrs) {
             scope.messageFormats = messageFormats;
             

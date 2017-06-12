@@ -60,6 +60,7 @@
     <Compile Include="Main\GlobalWeatherServiceClient.cs" />
     <Compile Include="Main\OpenWeatherFinder.cs" />
     <Compile Include="Main\OpenWeatherServiceClient.cs" />
+    <Compile Include="Main\StringExtension.cs" />
     <Compile Include="Main\WeatherModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\GobalWeatherService\Reference.cs">

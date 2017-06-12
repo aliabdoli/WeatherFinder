@@ -1,0 +1,15 @@
+﻿<form-message severity="errorHandling.severity" message="errorHandling.message"> </form-message>
+
+<div ng-controller="WeatherCtrl as vm">
+    <loading-spinner></loading-spinner>
+    <form id="weatherForm">
+        <h2>Weather Forecast</h2>
+      <weather-search
+          service="vm.service"           
+          model="vm.model">
+      </weather-search>
+        <weather-result model="vm.model.weather">
+        </weather-result>
+    </form>
+   
+</div>

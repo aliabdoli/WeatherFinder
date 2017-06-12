@@ -1,0 +1,29 @@
+﻿<div>
+    <div class="form-group">
+        <label class="control-label"> Country</label>
+        <ui-select name="uiCountry"
+                    theme="select2"
+                    ng-required="true"
+                    ng-model="model.country"
+                    ng-change="getCities(model.country)">
+            <ui-select-match allow-clear="true" placeholder="Country"> {{$select.selected.Name}} </ui-select-match>
+            <ui-select-choices repeat="item in (countries | orderBy: 'Code')| propertiesFilter: {Name: $select.search, Code: $select.search}">
+                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label"> City</label>
+        <ui-select name="uiCity"
+                   theme="select2"
+                   ng-required="true"
+                   ng-model="model.city"
+                   ng-change="getWeather(model.city)">
+            <ui-select-match allow-clear="true" placeholder="City"> {{$select.selected.Name}} </ui-select-match>
+            <ui-select-choices repeat="item in (cities | orderBy: 'Code')| propertiesFilter: {Name: $select.search, Code: $select.search}">
+                <div ng-bind-html="item.Name | highlight: $select.search"></div>
+            </ui-select-choices>
+        </ui-select>
+    </div>
+</div>

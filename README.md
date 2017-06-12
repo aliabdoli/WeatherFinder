@@ -1,4 +1,8 @@
 # WeatherFinder
+Important:
+
+	Because I could not find weather of any city from soap web service, I think if you find one it returns error.
+
 Testing:
 	* Although I have hands-on experience on Jasmine (to test AngularJs code) I have not used it (time limit)
 	* Unit test is done only for a few classes which I think the rest of classes can be done in the same way

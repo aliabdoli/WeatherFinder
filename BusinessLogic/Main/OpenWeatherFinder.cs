@@ -30,14 +30,14 @@ namespace BusinessLogic.Main
             var weather = new Weather()
             {
                 Time = data.Dt,
-                Location = data.Coord.Lat + separator + data.Coord.Lon,
-                Wind = data.Wind.Degree + separator + data.Wind.Speed,
+                Location = data.Coord?.Lat + separator + data.Coord?.Lon,
+                Wind = data.Wind?.Degree + separator + data.Wind?.Speed,
                 Visibility = data.visibility,
-                SkyConditions = data.Weather.Select(x => x.Description + separator + x.Main).Aggregate((i, j) => i + separator + j),
-                Temprature = data.Main.Temp,
-                DewPoint = data.Main.TempMin + separator + data.Main.TempMax,
-                RelativeHumidity = data.Main.Humidity,
-                Pressure = data.Main.Pressure
+                SkyConditions = data.Weather?.Select(x => x.Description + separator + x.Main).Aggregate((i, j) => i + separator + j),
+                Temprature = (data.Main == null) ? 0 : data.Main.Temp,
+                DewPoint = data.Main?.TempMin + separator + data.Main?.TempMax,
+                RelativeHumidity = (data.Main == null) ? 0 : data.Main.Humidity,
+                Pressure = (data.Main == null) ? 0 : data.Main.Pressure
             };
             return weather;
         }

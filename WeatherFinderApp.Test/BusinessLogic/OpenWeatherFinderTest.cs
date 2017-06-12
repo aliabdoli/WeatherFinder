@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp.Test.BusinessLogic
 {
+    [TestFixture]
     public class OpenWeatherFinderTest
     {
         [Test]
